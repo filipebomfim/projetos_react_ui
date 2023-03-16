@@ -1,23 +1,79 @@
+import * as React from 'react';
 import styles from './Home.module.css'
 import LinkButton from '../../components/buttons/LinkButton';
-import HomeImage from '../../img/home-image.svg'
+import HomeImage from '../../img/home-image.svg';
+import { styled } from '@mui/material/styles';
 import Title from '../../components/texts/Title';
 import GreatWord from '../../components/texts/GreatWord';
 import Subtitle from '../../components/texts/Subtitle';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import AccountTree from '@mui/icons-material/AccountTree';
+import Stack from '@mui/material/Stack';
 
 
-function Home(){
+function Home(){  
+    const [open, setOpen] = React.useState(false);
 
-    
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };  
+
+    const HomeButton = styled(Button)(({ theme }) => ({
+        backgroundColor: '#222',
+        color: '#00B0FF',
+        margin: '1em',
+        '&:hover': {
+            backgroundColor: '#00B0FF',
+            color: '#222',
+        },
+    }));
 
     return (
         <section className={styles.section}>
             <Title text="Gerenciamento de ">
                 <GreatWord word='Projetos'/>
             </Title>
-            <Subtitle text="Comece a gerenciar os seus projetos agora mesmo"/>     
-            <LinkButton text='Criar Projeto' to='/newProject'/>  
-            <img width='512' height='512' src={HomeImage} alt="HomeLogo"/>        
+            <Subtitle text="Comece a gerenciar os seus projetos agora mesmo"/>  
+            
+            <Stack direction="row" spacing={2}>
+                <HomeButton variant="outlined" endIcon={<AccountTree />} onClick={handleClickOpen}>
+                    Novo Projeto
+                </HomeButton>
+            </Stack>
+            <img width='512' height='512' src={HomeImage} alt="HomeLogo"/>
+
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Subscribe</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        To subscribe to this website, please enter your email address here. We
+                        will send updates occasionally.
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Email Address"
+                        type="email"
+                        fullWidth
+                        variant="standard"
+                    />
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleClose}>Cancel</Button>
+                <Button onClick={handleClose}>Subscribe</Button>
+                </DialogActions>
+            </Dialog>        
         </section>
     )
 }
