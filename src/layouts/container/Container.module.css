@@ -1,0 +1,12 @@
+.min-height{
+    min-height: 65%;
+}
+
+.start{
+    justify-content: flex-start;
+}
+
+.column {
+    flex-direction: column;
+    justify-content: flex-start;
+}
