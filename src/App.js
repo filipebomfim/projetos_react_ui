@@ -16,7 +16,6 @@ function App() {
     {"name":"Home","url":"/"},
     {"name":"Contato","url":"/contact"},
     {"name":"Planos","url":"/pricing"},
-    {"name":"Novo Projeto","url":"/newProject"},
     {"name":"Projetos","url":"/projects"}
   ];
 

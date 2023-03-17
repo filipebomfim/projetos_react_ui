@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styles from './Home.module.css'
+import {useHistory} from 'react-router-dom'
 import Box from '@mui/material/Box';
 import HomeImage from '../../img/home-image.svg';
 import { styled } from '@mui/material/styles';
@@ -20,6 +21,28 @@ import ProjectForm from '../../components/forms/ProjectForm';
 
 function Home(){  
     const [open, setOpen] = React.useState(false);
+
+    const history = useHistory()
+
+    function createPost(project){
+        project.cost = 0
+        project.services = []
+
+        fetch('http://localhost:5000/projects',{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
+        })
+        .then((resp)=> resp.json())
+        .then((data)=>{
+            console.log(data)
+            history.push('/projects',{message: 'Projeto criado com sucesso'})
+        })
+        .catch((error) => console.log(error))
+        
+    }
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -64,7 +87,7 @@ function Home(){
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Subscribe</DialogTitle>
                 <DialogContent>
-                    <ProjectForm/>
+                    <ProjectForm btnText="Criar Projeto" handleSubmit={createPost}/>
                 </DialogContent>
             </Dialog>        
         </section>
