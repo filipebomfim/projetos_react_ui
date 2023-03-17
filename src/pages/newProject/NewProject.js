@@ -1,23 +1,35 @@
 import * as React from 'react';
 import Subtitle from '../../components/texts/Subtitle';
+import {useHistory} from 'react-router-dom'
 import styles from './NewProject.module.css'
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import CreateProjectForm from '../../components/forms/CreateProjectForm';
+import ProjectForm from '../../components/forms/ProjectForm';
 import NoteAdd from '@mui/icons-material/NoteAdd';
 
 function NewProject(){
-    const [category, setCategory] = React.useState('');
+    const history = useHistory()
 
-    const handleChange = (event) => {
-      setCategory(event.target.value);
-    };
+    function createPost(project){
+        project.cost = 0
+        project.services = []
 
-    function submissao(){
-        console.log('Submit');
+        fetch('http://localhost:5000/projects',{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(project)
+        })
+        .then((resp)=> resp.json())
+        .then((data)=>{
+            console.log(data)
+            history.push('/projects',{message: 'Projeto criado com sucesso'})
+        })
+        .catch((error) => console.log(error))
+        
     }
 
     return (
@@ -46,7 +58,7 @@ function NewProject(){
                 />
                 <CardContent>
                     <Subtitle text="Crie seu projeto para depois adicionar os seus serviços"/>  
-                    <CreateProjectForm/>
+                    <ProjectForm handleSubmit={createPost} btnText="Criar Projeto"/>
                 </CardContent>
               </Card>
         </Box>             

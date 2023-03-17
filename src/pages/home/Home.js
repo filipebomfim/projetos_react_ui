@@ -15,7 +15,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AccountTree from '@mui/icons-material/AccountTree';
 import Stack from '@mui/material/Stack';
-import CreateProjectForm from '../../components/forms/CreateProjectForm';
+import ProjectForm from '../../components/forms/ProjectForm';
 
 
 function Home(){  
@@ -64,7 +64,7 @@ function Home(){
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Subscribe</DialogTitle>
                 <DialogContent>
-                    <CreateProjectForm/>
+                    <ProjectForm/>
                 </DialogContent>
             </Dialog>        
         </section>

@@ -14,9 +14,10 @@ const darkTheme = createTheme({
 function App() {
   const menuItens = [
     {"name":"Home","url":"/"},
-    {"name":"Contact","url":"/contact"},
-    {"name":"Pricing","url":"/pricing"},
-    {"name":"New Project","url":"/newProject"}
+    {"name":"Contato","url":"/contact"},
+    {"name":"Planos","url":"/pricing"},
+    {"name":"Novo Projeto","url":"/newProject"},
+    {"name":"Projetos","url":"/projects"}
   ];
 
   return (
