@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './Home.module.css'
-import LinkButton from '../../components/buttons/LinkButton';
+import Box from '@mui/material/Box';
 import HomeImage from '../../img/home-image.svg';
 import { styled } from '@mui/material/styles';
 import Title from '../../components/texts/Title';
@@ -15,6 +15,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import AccountTree from '@mui/icons-material/AccountTree';
 import Stack from '@mui/material/Stack';
+import CreateProjectForm from '../../components/forms/CreateProjectForm';
 
 
 function Home(){  
@@ -39,40 +40,32 @@ function Home(){
     }));
 
     return (
-        <section className={styles.section}>
-            <Title text="Gerenciamento de ">
-                <GreatWord word='Projetos'/>
-            </Title>
-            <Subtitle text="Comece a gerenciar os seus projetos agora mesmo"/>  
-            
-            <Stack direction="row" spacing={2}>
-                <HomeButton variant="outlined" endIcon={<AccountTree />} onClick={handleClickOpen}>
-                    Novo Projeto
-                </HomeButton>
-            </Stack>
-            <img width='512' height='512' src={HomeImage} alt="HomeLogo"/>
+        <section>
+            <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                flexDirection="column"
+                minHeight="100vh"
+            >
+                <Title text="Gerenciamento de ">
+                    <GreatWord word='Projetos'/>
+                </Title>
+                <Subtitle text="Comece a gerenciar os seus projetos agora mesmo"/>
+                
+                <Stack direction="row" spacing={2}>
+                    <HomeButton variant="outlined" endIcon={<AccountTree />} onClick={handleClickOpen}>
+                        Novo Projeto
+                    </HomeButton>
+                </Stack>
+                <img width='512' height='512' src={HomeImage} alt="HomeLogo"/> 
+            </Box>
 
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Subscribe</DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We
-                        will send updates occasionally.
-                    </DialogContentText>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Email Address"
-                        type="email"
-                        fullWidth
-                        variant="standard"
-                    />
+                    <CreateProjectForm/>
                 </DialogContent>
-                <DialogActions>
-                <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleClose}>Subscribe</Button>
-                </DialogActions>
             </Dialog>        
         </section>
     )

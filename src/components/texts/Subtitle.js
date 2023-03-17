@@ -1,8 +1,9 @@
+import { Typography } from '@mui/material'
 import styles from './Subtitle.module.css'
 
 function Subtitle({text}) {
   return (
-    <p className={styles.Subtitle}>{text}</p>
+    <Typography sx={{paddingBottom: 2}} className={styles.Subtitle}>{text}</Typography>
   )
 }
 
