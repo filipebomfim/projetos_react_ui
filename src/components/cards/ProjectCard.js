@@ -4,11 +4,15 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import StarIcon from '@mui/icons-material/StarBorder';
-import { Box, Button, Chip, Divider, Typography } from '@mui/material';
+import { Box, Button, Chip, Container, Divider, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 
 function ProjectCard({project, handleRemove}) {
     const [category, setCategory] = useState('')
+    const remove = (e) => {
+        e.preventDefault();
+        handleRemove(project.id)
+    }
 
     useEffect(()=> {
         fetch('http://localhost:5000/categories/'+project.category.id,{
@@ -25,14 +29,6 @@ function ProjectCard({project, handleRemove}) {
         .catch((error) => console.log(error))
     },[])
 
-    const Root = styled('div')(({ theme }) => ({
-        width: '100%',
-        textAlign:'center',
-        ...theme.typography.body2,
-        '& > :not(style) + :not(style)': {
-          marginTop: '1em',
-        },
-      }));
 
   return (
     <Card sx={{ms:'3',me:'3'}}>
@@ -44,29 +40,21 @@ function ProjectCard({project, handleRemove}) {
                 backgroundColor: '#222',
             }}
         />
-        <CardContent>
-            <Root style={{marginBottom: '1em'}}>
-                    <Divider >
-                        <Chip label="Orçamento" />
-                    </Divider>
-                    <Typography variant="h6" color="text.primary">
-                        R$ {project.budget} 
-                    </Typography>                                       
-            </Root>
-            <Root>
-                    <Divider >
-                        <Chip label="Categoria" />
-                    </Divider>
-                    <Typography variant="h6" color="text.primary">
-                        {category} 
-                    </Typography>                                       
-            </Root>
+        <CardContent sx={{margin:0}}>
+            <Box sx={{display:'flex', justifyContent: 'space-between'}}>
+                <Typography variant="body1">Orçamento</Typography>
+                <Typography variant="body1">R$ {project.budget}</Typography>
+            </Box>
+            <Box sx={{display:'flex', justifyContent: 'space-between'}}>
+                <Typography variant="body1">Categoria</Typography>
+                <Typography variant="body1">{category}</Typography>
+            </Box>
         </CardContent>
         <CardActions>
         <Button fullWidth variant='outlined'>
             Editar
         </Button>
-        <Button fullWidth variant='outlined'>
+        <Button fullWidth variant='outlined' onClick={remove}>
             Excluir
         </Button>
         </CardActions>

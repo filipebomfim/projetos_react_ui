@@ -1,56 +1,5 @@
 {
-  "projects": [
-    {
-      "name": "Projeto Teste",
-      "budget": "7000",
-      "category": {
-        "id": 2
-      },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "name": "Projeto Home Teste",
-      "budget": "10000",
-      "category": {
-        "id": 1
-      },
-      "cost": 0,
-      "services": [],
-      "id": 2
-    },
-    {
-      "name": "Projeto Home Teste 2",
-      "budget": "800",
-      "category": {
-        "id": 1
-      },
-      "cost": 0,
-      "services": [],
-      "id": 3
-    },
-    {
-      "name": "Projeto Teste 2",
-      "budget": "48000",
-      "category": {
-        "id": 4
-      },
-      "cost": 0,
-      "services": [],
-      "id": 4
-    },
-    {
-      "name": "Projeto Teste 3",
-      "budget": "15000",
-      "category": {
-        "id": 3
-      },
-      "cost": 0,
-      "services": [],
-      "id": 5
-    }
-  ],
+  "projects": [],
   "categories": [
     {
       "id": 1,

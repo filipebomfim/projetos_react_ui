@@ -23,6 +23,7 @@ import AlertMessage from '../../components/alert/AlertMessage';
 import LinkButton from '../../components/buttons/LinkButton';
 import { width } from '@mui/system';
 import ProjectCard from '../../components/cards/ProjectCard';
+import Loading from '../../components/loading/Loading';
 
 function Projects() {
     const location = useLocation();
@@ -32,66 +33,41 @@ function Projects() {
     }
 
     const [projects, setProjects] = useState([])
+    const [removeLoading, setRemoveLoading] = useState(false)
+    const [projectMessage, setProjectMessage] = useState('')
+
+
+    function removeProject(id){
+      fetch('http://localhost:5000/projects/'+id,{
+          method: 'DELETE',
+          headers:{
+              'Content-Type': 'application/json'
+          }
+        })
+        .then((resp)=> resp.json())
+        .then(()=>{
+            setProjects(projects.filter((project)=>project.id !== id))
+            setProjectMessage('Projeto removido com sucesso!')
+        })
+        .catch((error) => console.log(error))
+    }
 
     useEffect(()=> {
+      setTimeout(()=>{
         fetch('http://localhost:5000/projects',{
-            method: 'GET',
-            headers:{
-                'Content-Type': 'application/json'
-            }
+          method: 'GET',
+          headers:{
+              'Content-Type': 'application/json'
+          }
         })
         .then((resp)=> resp.json())
         .then((data)=>{
             setProjects(data)
+            setRemoveLoading(true)
         })
         .catch((error) => console.log(error))
+      },3000)
     },[])
-
-    
-
-    const tiers = [
-        {
-          title: 'Free',
-          price: '0',
-          description: [
-            '10 users included',
-            '2 GB of storage',
-            'Help center access',
-            'Email support',
-          ],
-          buttonText: 'Sign up for free',
-          buttonVariant: 'outlined',
-        },
-        {
-          title: 'Pro',
-          subheader: 'Most popular',
-          price: '15',
-          description: [
-            '20 users included',
-            '10 GB of storage',
-            'Help center access',
-            'Priority email support',
-          ],
-          buttonText: 'Get started',
-          buttonVariant: 'contained',
-        },
-        {
-          title: 'Enterprise',
-          price: '30',
-          description: [
-            '50 users included',
-            '30 GB of storage',
-            'Help center access',
-            'Phone & email support',
-          ],
-          buttonText: 'Contact us',
-          buttonVariant: 'outlined',
-        },
-      ];
-
-      
-
-
 
 
   return (
@@ -99,6 +75,8 @@ function Projects() {
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
       {/* Hero unit */}
+      {message && <AlertMessage type="success" msg={message} />}
+      {projectMessage && <AlertMessage type="success" msg={projectMessage} />}
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
         <Box
             display="flex"
@@ -124,10 +102,14 @@ function Projects() {
                     sm={12}
                     md={4}
                 >
-                    <ProjectCard project={project}/>
+                    <ProjectCard project={project} key={project.id} handleRemove={removeProject}/>
                 </Grid>
         ))}
         </Grid>
+        {!removeLoading && <Loading/>}
+        {removeLoading && projects.length == 0 && (
+          <Subtitle text="Não existem projetos cadastrados"/>
+        )}
       </Container>
     </React.Fragment>
     
