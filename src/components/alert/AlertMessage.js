@@ -21,7 +21,7 @@ function AlertMessage({msg,type}) {
   return (
     <React.Fragment>
       {visible && (
-        <Alert sx={{ p:2,m:2}} variant="filled" severity={type}>
+        <Alert sx={{ p:2,m:2, position:'fixed',left:'50%', transform: 'translate(-50%)'}} variant="filled" severity={type}>
           {msg}
         </Alert>
       )}

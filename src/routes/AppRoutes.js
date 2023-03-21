@@ -4,6 +4,7 @@ import Pricing from '../pages/pricing/Pricing'
 import Contact from '../pages/contact/Contact'
 import NewProject from '../pages/newProject/NewProject'
 import Projects from '../pages/projects/Projects'
+import Project from '../pages/project/Project'
 
 function AppRoutes() {
     return (
@@ -11,17 +12,20 @@ function AppRoutes() {
             <Route exact path="/">
                 <Home />
             </Route>
-            <Route exact path="/pricing">
+            <Route path="/pricing">
                 <Pricing />
             </Route>
-            <Route exact path="/contact">
+            <Route path="/contact">
                 <Contact />
             </Route>
-            <Route exact path="/newProject">
+            <Route path="/newProject">
                 <NewProject />
             </Route>
-            <Route exact path="/projects">
+            <Route path="/projects">
                 <Projects />
+            </Route>
+            <Route path="/project/:id">
+                <Project />
             </Route>
         </Switch>
     );

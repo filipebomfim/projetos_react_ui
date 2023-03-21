@@ -6,6 +6,7 @@ import CardHeader from '@mui/material/CardHeader';
 import StarIcon from '@mui/icons-material/StarBorder';
 import { Box, Button, Chip, Container, Divider, Typography } from '@mui/material';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 function ProjectCard({project, handleRemove}) {
     const [category, setCategory] = useState('')
@@ -13,6 +14,11 @@ function ProjectCard({project, handleRemove}) {
         e.preventDefault();
         handleRemove(project.id)
     }
+
+    const linkStyle = {
+        textDecoration: "none",
+        color: '#222'
+      };
 
     useEffect(()=> {
         fetch('http://localhost:5000/categories/'+project.category.id,{
@@ -47,14 +53,16 @@ function ProjectCard({project, handleRemove}) {
             </Box>
             <Box sx={{display:'flex', justifyContent: 'space-between'}}>
                 <Typography variant="body1">Categoria</Typography>
-                <Typography variant="body1">{category}</Typography>
+                <Typography variant="body1">{project.category.name}</Typography>
             </Box>
         </CardContent>
         <CardActions>
-        <Button fullWidth variant='outlined'>
-            Editar
-        </Button>
-        <Button fullWidth variant='outlined' onClick={remove}>
+        <Button fullWidth variant='contained' >
+            <Link to={`/project/${project.id}`}  style={linkStyle}>
+                Editar
+            </Link>   
+        </Button>     
+        <Button fullWidth variant='contained'  onClick={remove}>
             Excluir
         </Button>
         </CardActions>

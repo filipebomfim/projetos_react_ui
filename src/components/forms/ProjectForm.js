@@ -35,10 +35,14 @@ function ProjectForm({ handleSubmit, btnText, projectData}) {
     };
 
     const handleCategory = (event) => { 
+        const cat = categories.filter(category => category.id == event.target.value)
+        .map(obj => obj.name)
         setProject({...project, category: {
             id: event.target.value,
+            name: cat[0]
         },
         })
+        
     }
 
     const submit = (event) => {

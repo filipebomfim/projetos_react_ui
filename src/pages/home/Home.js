@@ -84,7 +84,7 @@ function Home(){
                 <img width='512' height='512' src={HomeImage} alt="HomeLogo"/> 
             </Box>
 
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog open={open} onClose={handleClose} fullWidth='md'>
                 <DialogTitle>Subscribe</DialogTitle>
                 <DialogContent>
                     <ProjectForm btnText="Criar Projeto" handleSubmit={createPost}/>

@@ -1,5 +1,24 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "name": "Projeto Atualizadin",
+      "budget": "500",
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento"
+      },
+      "cost": 100,
+      "services": [
+        {
+          "name": "Análise Inicial",
+          "cost": "100",
+          "description": "Análise Inicial",
+          "id": "849e834c-919a-4e37-bac5-868279145a2c"
+        }
+      ],
+      "id": 1
+    }
+  ],
   "categories": [
     {
       "id": 1,

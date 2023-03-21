@@ -66,7 +66,7 @@ function Projects() {
             setRemoveLoading(true)
         })
         .catch((error) => console.log(error))
-      },3000)
+      },1500)
     },[])
 
 
