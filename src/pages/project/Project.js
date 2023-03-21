@@ -142,6 +142,7 @@ function Project() {
                             alignItems="center"
                             flexDirection="column"
                             minHeight="100vh"
+                            textAlign="center"
                         >
                             <Title text="">
                                 <GreatWord word={project.name}/>
@@ -174,7 +175,40 @@ function Project() {
                             </Container>
                             <Root>                                
                                 <Divider>Serviços</Divider>
-                            </Root>           
+                            </Root> 
+                            {project.services.length == 0 
+                                ? (<Subtitle text="O projeto não possui nenhum serviço adicionado"/>)
+                                : (
+                                    project.services.map((service)=>(
+                                        <Container sx={{marginBottom:"1em"}}>
+                                            <Box
+                                                display="flex"
+                                                justifyContent="space-between"
+                                                >
+                                                    <Typography variant="h6">Nome do Serviço</Typography>
+                                                    <Typography variant="h6">{service.name}</Typography>
+                                            </Box>
+                                            <Box
+                                                display="flex"
+                                                justifyContent="space-between"
+                                                >
+                                                    <Typography variant="h6">Valor do Serviço</Typography>
+                                                    <Typography variant="h6">R$ {service.cost}</Typography>
+                                            </Box>
+                                            <Box
+                                                display="flex"
+                                                justifyContent="space-between"
+                                                marginBottom="1em"
+                                                >
+                                                    <Typography variant="h6">Descrição</Typography>
+                                                    <Typography variant="h6">{service.description}</Typography>
+                                            </Box>
+                                            <Root>                                
+                                                <Divider></Divider>
+                                            </Root> 
+                                        </Container>
+                                    ))
+                                )}         
                             <Stack direction="row" spacing={2}>
                                 <HomeButton variant="outlined" endIcon={<ModeEditIcon />} onClick={handleDialogProjectOpen}>
                                     Editar Projeto

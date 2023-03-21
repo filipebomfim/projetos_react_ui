@@ -7,16 +7,27 @@
         "id": 2,
         "name": "Desenvolvimento"
       },
-      "cost": 100,
+      "cost": 500,
+      "services": [],
+      "id": 1
+    },
+    {
+      "name": "Desenvolvimento de Sistema",
+      "budget": "5000",
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento"
+      },
+      "cost": 3000,
       "services": [
         {
           "name": "Análise Inicial",
-          "cost": "100",
-          "description": "Análise Inicial",
-          "id": "849e834c-919a-4e37-bac5-868279145a2c"
+          "cost": "3000",
+          "description": "Análise Principal",
+          "id": "80965a59-f605-4cc5-8232-6251720076c6"
         }
       ],
-      "id": 1
+      "id": 2
     }
   ],
   "categories": [
