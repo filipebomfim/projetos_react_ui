@@ -4,7 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import StarIcon from '@mui/icons-material/StarBorder';
-import { Box, Button, Chip, Container, Divider, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Chip, Container, Divider, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
@@ -14,27 +14,6 @@ function ProjectCard({project, handleRemove}) {
         e.preventDefault();
         handleRemove(project.id)
     }
-
-    const linkStyle = {
-        textDecoration: "none",
-        color: '#222'
-      };
-
-    useEffect(()=> {
-        fetch('http://localhost:5000/categories/'+project.category.id,{
-            method: 'GET',
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })
-        .then((resp)=> resp.json())
-        .then((data)=>{
-            console.log(data)
-            setCategory(data.name)
-        })
-        .catch((error) => console.log(error))
-    },[])
-
 
   return (
     <Card sx={{ms:'3',me:'3'}}>
@@ -56,15 +35,13 @@ function ProjectCard({project, handleRemove}) {
                 <Typography variant="body1">{project.category.name}</Typography>
             </Box>
         </CardContent>
-        <CardActions>
-        <Button fullWidth variant='contained' >
-            <Link to={`/project/${project.id}`}  style={linkStyle}>
-                Editar
-            </Link>   
-        </Button>     
-        <Button fullWidth variant='contained'  onClick={remove}>
-            Excluir
-        </Button>
+        <CardActions sx={{ justifyContent: "space-around" }}>
+            <Button href={`/project/${project.id}`}>                
+                Editar                
+            </Button>     
+            <Button onClick={remove}>
+                Excluir
+            </Button>
         </CardActions>
     </Card>
   )

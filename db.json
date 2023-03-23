@@ -18,13 +18,25 @@
         "id": 2,
         "name": "Desenvolvimento"
       },
-      "cost": 3000,
+      "cost": 3008,
       "services": [
         {
           "name": "Análise Inicial",
           "cost": "3000",
-          "description": "Análise Principal",
+          "description": "Lorem Ipsum, Lorem Ipsum, and others, in this respect the cost of the service of   the person",
           "id": "80965a59-f605-4cc5-8232-6251720076c6"
+        },
+        {
+          "name": "Teste",
+          "cost": "7",
+          "description": "Análise Principal",
+          "id": "908c9835-6a88-4ab3-ab90-92a5fdeb4574"
+        },
+        {
+          "name": "Projeto Home Teste",
+          "cost": "1",
+          "description": "Implementação do Projeto após a finalização",
+          "id": "3b1d4986-746c-4efc-bbf4-cf8f08a96037"
         }
       ],
       "id": 2

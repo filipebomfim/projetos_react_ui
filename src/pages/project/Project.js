@@ -14,6 +14,7 @@ import GreatWord from '../../components/texts/GreatWord'
 import Subtitle from '../../components/texts/Subtitle'
 import Title from '../../components/texts/Title'
 import ServiceForm from '../../components/forms/ServiceForm';
+import ServiceCard from '../../components/cards/ServiceCard';
 
 function Project() {
     const { id } = useParams()
@@ -98,6 +99,7 @@ function Project() {
         }).catch(error => console.log(error))
       }
 
+
       function addService(project){
         setMessage('')
         const lastService = project.services[project.services.length - 1]
@@ -132,10 +134,10 @@ function Project() {
     return (
         <React.Fragment>
             {message && <AlertMessage type={type} msg={message} /> }
-            <Box sx={{display:'flex', justifyContent:'center', alignItems:'center', height:'90vh'}}>
+            <Box sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                 {!project.name 
                 ?   (<Loading/>) 
-                :   (<Container maxWidth="sm" component="main">
+                :   (<Container maxWidth="xg" component="main">
                         <Box
                             display="flex"
                             justifyContent="center"
@@ -178,36 +180,23 @@ function Project() {
                             </Root> 
                             {project.services.length == 0 
                                 ? (<Subtitle text="O projeto não possui nenhum serviço adicionado"/>)
-                                : (
-                                    project.services.map((service)=>(
-                                        <Container sx={{marginBottom:"1em"}}>
-                                            <Box
-                                                display="flex"
-                                                justifyContent="space-between"
-                                                >
-                                                    <Typography variant="h6">Nome do Serviço</Typography>
-                                                    <Typography variant="h6">{service.name}</Typography>
-                                            </Box>
-                                            <Box
-                                                display="flex"
-                                                justifyContent="space-between"
-                                                >
-                                                    <Typography variant="h6">Valor do Serviço</Typography>
-                                                    <Typography variant="h6">R$ {service.cost}</Typography>
-                                            </Box>
-                                            <Box
-                                                display="flex"
-                                                justifyContent="space-between"
-                                                marginBottom="1em"
-                                                >
-                                                    <Typography variant="h6">Descrição</Typography>
-                                                    <Typography variant="h6">{service.description}</Typography>
-                                            </Box>
-                                            <Root>                                
-                                                <Divider></Divider>
-                                            </Root> 
-                                        </Container>
-                                    ))
+                                : (<Container maxWidth="xg" component="main" sx={{margin:'1em'}}>
+                                        <Grid container sx={{display:'flex', justifyContent:'space-around',alignItems:"flex-end" }}>
+                                            {project.services.map((service)=>(
+                                            <Grid
+                                                item
+                                                key={service.id}
+                                                xs={12}
+                                                sm={12}
+                                                md={3}
+                                                sx={{ margin:'1em'}}
+                                            >
+                                                <ServiceCard service={service}/>
+                                            </Grid>
+                                            ))}
+                                        </Grid>
+                                    </Container>
+                                    
                                 )}         
                             <Stack direction="row" spacing={2}>
                                 <HomeButton variant="outlined" endIcon={<ModeEditIcon />} onClick={handleDialogProjectOpen}>
