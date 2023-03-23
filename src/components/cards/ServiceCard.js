@@ -2,7 +2,12 @@ import styled from '@emotion/styled';
 import { Box, Button, Card, CardActions, CardContent, CardHeader, Divider, Typography } from '@mui/material'
 import React from 'react'
 
-function ServiceCard({service}) {
+function ServiceCard({service, handleRemove}) {
+
+    const remove = (e) => {
+        e.preventDefault();
+        handleRemove(service.id, service.cost)
+    }
 
     const Root = styled('div')(({ theme }) => ({
         width: '100%',
@@ -39,7 +44,7 @@ function ServiceCard({service}) {
                 <Button>                
                     Editar                
                 </Button>     
-                <Button>
+                <Button onClick={remove}>
                     Excluir
                 </Button>
             </CardActions>

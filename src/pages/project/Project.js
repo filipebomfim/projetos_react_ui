@@ -131,6 +131,30 @@ function Project() {
         }).catch(error => console.log(error))
       }
 
+      function removeService(id, cost){
+        const servicesUpdated = project.services.filter(
+            (service) => service.id !== id 
+        )
+
+        const projectUpdated = project
+        projectUpdated.services = servicesUpdated
+        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
+
+        fetch(`http://localhost:5000/projects/${projectUpdated.id}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(projectUpdated)
+        }).then(resp=>resp.json())
+        .then((data)=> {
+            setProject(projectUpdated)
+            setMessage('Serviço excluído com sucesso')
+            setType('success')
+        }).catch(error => console.log(error))
+
+      }
+
     return (
         <React.Fragment>
             {message && <AlertMessage type={type} msg={message} /> }
@@ -191,7 +215,7 @@ function Project() {
                                                 md={3}
                                                 sx={{ margin:'1em'}}
                                             >
-                                                <ServiceCard service={service}/>
+                                                <ServiceCard service={service} handleRemove={removeService}/>
                                             </Grid>
                                             ))}
                                         </Grid>
