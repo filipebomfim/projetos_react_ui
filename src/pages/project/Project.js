@@ -1,13 +1,12 @@
 import styled from '@emotion/styled'
-import { parse, v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
-import { Button, Card, CardContent, CardHeader, Container, Dialog, DialogContent, DialogTitle, Divider, Grid, Stack, Typography } from '@mui/material'
+import { Button, Container, Dialog, DialogContent, DialogTitle, Divider, Grid, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AlertMessage from '../../components/alert/AlertMessage'
-import ProjectCard from '../../components/cards/ProjectCard'
 import ProjectForm from '../../components/forms/ProjectForm'
 import Loading from '../../components/loading/Loading'
 import GreatWord from '../../components/texts/GreatWord'
