@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+<h1 align="center">
+     📒 Gerenciador de Projetos</a>
+</h1>
+<p align="center">App que gerencia informações sobre projetos, como orçamentos e serviços prestados. Projeto foi desenvolvido para estudo do React com Material UI. </p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![home](https://user-images.githubusercontent.com/38573324/230089741-a0bb823c-5a9a-4515-8055-587258866bf1.png)
+![projects](https://user-images.githubusercontent.com/38573324/230090452-edc2dc1a-5317-45b6-bf2e-abdeeb479f79.png)
+![project](https://user-images.githubusercontent.com/38573324/230091473-e8c3ed76-faee-43d3-9dfd-4525fd7cafe9.png)
 
-In the project directory, you can run:
 
-### `npm start`
+<h3 id="features">⚙️ Funcionalidades</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [x] Criação, visualização, edição e exclusão de projetos
+- [x] Adição e exclusão de serviços aos projetos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+<h3 id="tecnologias">🛠 Tecnologias</h3>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As seguintes tecnologias foram usadas na construção do projeto:
 
-### `npm run build`
+- HTML5
+- CSS3
+- react 18.2
+- react-router-dom 5.2
+- material ui 5
+- material icons 5
+- json-server 0.17.2
+<hr>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h3 id="instalacao">🎲 Instalação</h3>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Clonar o repositório
+```
+git clone https://github.com/filipebomfim/projetos_react_ui.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Configuração do projeto
+```
+npm install
+```
 
-### `npm run eject`
+## Rodar Backend
+```
+npm run backend
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Compilação e rodar servidor do projeto
+```
+npm run serve
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Compilação para produção
+```
+npm run build
+```
+<hr>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<h3 id="autor">🦸 Autor</h3>
 
-## Learn More
+Feito com carinho e dedicação por mim, rs. Filipe Bomfim 👋🏽 Espero que gostem! 
+Entre em contato!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[![Gmail Badge](https://img.shields.io/badge/-Filipe-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:filipebomfim.dev@gmail.com)](mailto:filipebomfim.dev@gmail.com)
+[![Linkedin Badge](https://img.shields.io/badge/-Filipe-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/filipe-bomfim-931256224/)](https://www.linkedin.com/in/filipe-bomfim-931256224/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
