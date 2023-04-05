@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Subtitle from '../../components/texts/Subtitle';
 import {useHistory} from 'react-router-dom'
-import styles from './NewProject.module.css'
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
