@@ -5,14 +5,15 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import StarIcon from '@mui/icons-material/StarBorder';
 import { Box, Button, ButtonGroup, Chip, Container, Divider, Typography } from '@mui/material';
-
+import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 function ProjectCard({project, handleRemove}) {
+    const [category, setCategory] = useState('')
     const remove = (e) => {
         e.preventDefault();
         handleRemove(project.id)
     }
-
 
   return (
     <Card sx={{ms:'3',me:'3'}}>

@@ -1,5 +1,28 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "name": "Projeto Atualizadin",
+      "budget": "500",
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento"
+      },
+      "cost": 500,
+      "services": [],
+      "id": 1
+    },
+    {
+      "name": "Desenvolvimento de Sistema",
+      "budget": "5000",
+      "category": {
+        "id": 2,
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 2
+    }
+  ],
   "categories": [
     {
       "id": 1,
